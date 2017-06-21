@@ -1,0 +1,89 @@
+﻿@model IEnumerable<lecturate.Models.School>
+
+@{
+    ViewBag.Title = "בתי ספר";
+}
+
+
+<div class="pagePlaceWithoutLayout">
+
+    <div class="container">
+
+        <p>
+            @Html.ActionLink("הוספת בית ספר", "CreateSchool")
+        </p>
+        @using (Html.BeginForm())
+        {
+            <p>
+                חיפוש לפי שם בית הספר: @Html.TextBox("SearchString")
+                <input type="submit" value="חיפוש" />
+            </p>
+        }
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink("שם בית הספר", "IndexSchool", new { sortOrder = ViewBag.SchoolNameSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoursesLearnedInSchool)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th style="width: 440px;">
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    אפשרויות מנהל
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                    <td>
+                        @{
+                foreach (var course in item.CoursesLearnedInSchool)
+                {
+                    @course.Name <br />
+                }
+                        }
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+
+
+
+
+
+                    <td>
+                        @Html.ActionLink("Edit", "EditSchool", new { id = item.SchoolID }) |
+                        @Html.ActionLink("Details", "DetailsSchool", new { id = item.SchoolID }) |
+                        @Html.ActionLink("Delete", "DeleteSchool", new { id = item.SchoolID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        </div>
+    </div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<lecturate.Models.School>
+
+@{
+    ViewBag.Title = "פרטי בית ספר";
+}
+
+
+@{
+    //insert "post" parameters into varaibles
+    var SchoolID = Request.Params["SchoolID"];
+    int school = int.Parse(SchoolID);
+
+     }
+
+<div class="pagePlaceWithoutLayout">
+   
+    <div class="container">
+       @{
+           foreach (var item in Model)
+           {
+                   
+                   <dl class="dl-horizontal pages">
+                    <dt>בית הספר: </dt>
+                    <dd>@Html.DisplayFor(modelItem => item.Name)</dd>
+                   
+                    <dt>שנת הקמה: </dt>
+                    <dd>@Html.DisplayFor(modelItem => item.Year)</dd>
+
+                    <dt>טלפון: </dt>
+                    <dd>@Html.DisplayFor(modelItem => item.Phone)</dd>
+
+                    <dt>אודות: </dt>
+                    <dd><div class="aboutSchoolMultipleColumns">@Html.DisplayFor(modelItem => item.Description)</div></dd>
+                   
+                    <dt>רשימת קורסים: </dt>
+                    <dd>
+                       @{
+                        
+                   foreach (var schoolItem in item.CoursesLearnedInSchool)
+                   {
+                    @schoolItem.Name <br />
+                   }
+                    }</dd>
+
+                       <dt>רשימת מרצים: </dt>
+                       <dd>
+                           @{
+               foreach (var lec in item.AllLecturesTeachingInThisSchool)
+               {
+                   @lec.FullName <br />
+               }
+               }
+                   </dd>
+
+                   
+                   </dl>
+
+                   
+               
+           }
+       }
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<lecturate.Models.Lecturer>
+
+@{
+    ViewBag.Title = "פרטי מרצה";
+}
+
+
+@{
+    //insert "post" parameters into varaibles
+    var LecturerID = Request.Params["LecturerID"];
+    int lecturer = int.Parse(LecturerID);
+}
+
+<div class="pagePlaceWithoutLayout">
+
+    <div class="container">
+        @{
+            foreach (var item in Model)
+            {
+
+                <dl class="dl-horizontal pages">
+                    <dt>שם המרצה: </dt>
+                    <dd>@Html.DisplayFor(modelItem => item.FullName)</dd>
+
+                    <dt>ותק: </dt>
+                    <dd>@Html.DisplayFor(modelItem => item.Seniority)</dd>
+
+                    <dt>מלמד בבית ספר: </dt>
+                    <dd>
+                        @{
+
+                foreach (var schoolItem in item.AllSchoolLecturerBelongsTo)
+                {
+                    @schoolItem.Name <br />
+                }
+                        }
+                    </dd>
+
+                    <dt>רשימת קורסים: </dt>
+                    <dd>
+                        @{
+
+                foreach (var course in item.AllCoursesTeachedByLecturer)
+                {
+                    @course.Name <br />
+                }
+                        }
+                    </dd>
+
+
+                </dl>
+
+
+
+            }
+        }
+    </div>
+</div>

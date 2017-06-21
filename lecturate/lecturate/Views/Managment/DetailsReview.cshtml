@@ -1,0 +1,144 @@
+﻿@model lecturate.Models.Review
+
+@{
+    ViewBag.Title = "DetailsReview";
+}
+
+<div class="pagePlaceWithoutLayout">
+    <div class="container">
+
+        <div>
+            <h4>פרטי דירוג</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpVote)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UpVote)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DownVote)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DownVote)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerReadine)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerReadine)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerTransferRate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerTransferRate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerAttitude)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerAttitude)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerKnowledge)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerKnowledge)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StudyingYear)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StudyingYear)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PositiveComment)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PositiveComment)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NegativeComment)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NegativeComment)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateOfReview)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateOfReview)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AvgReview)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AvgReview)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.institution.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.institution.Name)
+                </dd>
+
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.school.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.school.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.course.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.course.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.lecturer.FullName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.lecturer.FullName)
+                </dd>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("עריכה", "EditReview", new { id = Model.ReviewID }) |
+            @Html.ActionLink("חזרה לרשימה המלאה", "AllReviews")
+        </p>
+
+    </div>
+</div>

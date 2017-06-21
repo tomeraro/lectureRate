@@ -1,0 +1,53 @@
+﻿@model lecturate.Models.School
+
+@{
+    ViewBag.Title = "DetailsSchool";
+}
+
+<div class="pagePlaceWithoutLayout">
+    <div class="container">
+
+        <div>
+            <h4>פרטי בית ספר</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Year)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Year)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("עריכה", "EditSchool", new { id = Model.SchoolID }) |
+            @Html.ActionLink("חזרה לרשימה המלאה", "IndexSchool")
+        </p>
+</div>
+</div>

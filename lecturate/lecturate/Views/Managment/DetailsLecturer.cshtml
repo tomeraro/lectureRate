@@ -1,0 +1,54 @@
+﻿@model lecturate.Models.Lecturer
+
+@{
+    ViewBag.Title = "DetailsLecturer";
+}
+
+
+<div class="pagePlaceWithoutLayout">
+    <div class="container">
+
+        <div>
+            <h4>פרטי מרצה</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Seniority)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Seniority)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GeneralGradeOfLecturer)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GeneralGradeOfLecturer)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("עריכה", "EditLecturer", new { id = Model.LecturerID }) |
+            @Html.ActionLink("חזרה לרשימה המלאה", "IndexLecturer")
+        </p>
+    </div>
+</div>

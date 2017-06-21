@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "עמוד מנהל";
+}
+<div class="pagePlaceWithoutLayout">
+    <div class="container">
+        <h3>עמוד מנהל</h3>
+        <hr style=" border: 0; border-bottom: 1px dashed #ccc; background: #999; margin-top: -7px;"></hr>
+        <br />
+
+        <div class="row">
+            <div class="col-sm-3 portfolio-item">
+                <a href="/Managment/IndexSchool">
+                    <img src="../images/adminSchools.jpg" class="img-responsive" alt="">
+                </a>
+                <div style="text-align: center;">
+                    @Html.ActionLink("רשימת בתי ספר", "IndexSchool", null, new { @style = "font-size: 22px; font-family: OpenSansHebrew-Bold;" })
+                </div>
+            </div>
+
+            <div class="col-sm-3 portfolio-item">
+                <a href="/Managment/IndexLecturer">
+                    <img src="../images/adminLecturers.jpg" class="img-responsive" alt="">
+                </a>
+                <div style="text-align: center;">
+                    @Html.ActionLink("רשימת מרצים", "IndexLecturer", null, new { @style = "font-size: 22px; font-family: OpenSansHebrew-Bold;" })
+                </div>
+            </div>
+
+            <div class="col-sm-3 portfolio-item">
+                <a href="/Managment/IndexCourse">
+                    <img src="../images/adminCourses.jpg" class="img-responsive" alt="">
+                </a>
+                <div style="text-align: center;">
+                    @Html.ActionLink("רשימת קורסים", "IndexCourse", null, new { @style = "font-size: 22px; font-family: OpenSansHebrew-Bold;" })
+                </div>
+            </div>
+
+            <div class="col-sm-3 portfolio-item">
+                <a href="/Managment/AllReviews">
+                    <img src="../images/adminReviews.jpg" class="img-responsive" alt="">
+                </a>
+                <div style="text-align: center;">
+                    @Html.ActionLink("רשימת ביקורות", "AllReviews", "Managment", null, new { @style = "font-size: 22px; font-family: OpenSansHebrew-Bold;" })
+                </div>
+
+            </div>
+
+            <div class="col-sm-3 portfolio-item">
+                <a href="/Managment/IndexInstitution">
+                    <img src="../images/adminInstitutions.jpg" class="img-responsive" alt="">
+                </a>
+                <div style="text-align: center;">
+                    @Html.ActionLink("רשימת מוסדות לימוד", "IndexInstitution", null, new { @style = "font-size: 22px; font-family: OpenSansHebrew-Bold;" })
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

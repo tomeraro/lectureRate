@@ -1,0 +1,53 @@
+﻿@model lecturate.Models.Course
+
+@{
+    ViewBag.Title = "DetailsCourse";
+}
+
+<div class="pagePlaceWithoutLayout">
+    <div class="container">
+
+        <div>
+            <h4>פרטי קורס</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Difficulty)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Difficulty)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SchoolID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SchoolID)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("עריכה", "EditCourse", new { id = Model.CourseID }) |
+            @Html.ActionLink("חזרה לרשימה המלאה", "IndexCourse")
+        </p>
+</div>
+</div>

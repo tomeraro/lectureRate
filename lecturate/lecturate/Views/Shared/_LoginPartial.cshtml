@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <span style="font-size: 13px;">
+        @Html.ActionLink("ברוך הבא," + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" , @style = "color:#fff;" })
+        <a href="javascript:document.getElementById('logoutForm').submit()" style="color: #fff;">התנתק</a>
+    </span>
+    }
+}
+else
+{
+    <div style="margin-right:10px;">
+        @Html.ActionLink("הרשם", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:#fff;" })
+        <span style="font-size: 15px; font-family: OpenSansHebrew-Regular;"> או  </span>
+        @Html.ActionLink("התחבר", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "color:#fff;" })
+    </div>
+}

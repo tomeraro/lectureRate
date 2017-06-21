@@ -1,0 +1,102 @@
+﻿@model IEnumerable<lecturate.Models.Institution>
+
+@{
+    ViewBag.Title = "מוסד לימודים";
+}
+
+@{
+    //insert "post" parameters into varaibles
+    var inst = Request.Params["InstitutionID"];
+    int InstitutionID = int.Parse(inst);
+}
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5Wx3OzfMRQPS28NlSwQNBKYuqnck1bQU&sensor=false&dir='rtl'&language=iw"></script>
+<script>
+   function dashboard(id, fData) {
+        var israel = new google.maps.LatLng(31.9634816, 34.8014353);
+        var map;
+        var geocoder;
+
+        function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var mapOptions = {
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                center: israel
+            };
+            map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+            codeAddress(fData[0]);
+        }
+
+
+        function codeAddress(address) {
+            geocoder.geocode({ address: address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);//center the map over the result
+                    //place a marker at the location
+                    var marker = new google.maps.Marker(
+                    {
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+   }
+
+   
+
+
+
+   $.getJSON("http://localhost:59824/Review/GetGoogleMap", { InstitutionID: '@InstitutionID' }, function (results) {
+        dashboard('#googleMap', results);
+    });
+</script>
+
+
+<div class="pagePlaceWithoutLayout">
+
+    <div class="container">
+        @{
+            foreach (var item in Model)
+            {
+
+                <dl class="dl-horizontal pages">
+                    <dt>מוסד לימוד: </dt>
+                    <dd>@Html.DisplayFor(modelItem => item.Name)</dd>
+
+                    <dt>כתובת: </dt>
+                    <dd>@Html.DisplayFor(modelItem => item.Address) <br />
+                        <div id="googleMap" style="width:100%; height: 300px;"></div>
+                    </dd>
+
+                    <dt>אודות: </dt>
+                    <dd><div class="aboutSchoolMultipleColumns">@Html.DisplayFor(modelItem => item.Description)</div></dd>
+
+                    <dt>רשימת בתי ספר: </dt>
+                    <dd>
+                        @{
+
+                foreach (var schools in item.Schools)
+                {
+                    @schools.Name <br />
+                }
+                        }
+                    </dd>
+
+
+                </dl>
+
+
+
+            }
+        }
+    </div>
+</div>
+
+

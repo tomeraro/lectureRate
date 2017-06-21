@@ -1,0 +1,89 @@
+﻿@model IEnumerable<lecturate.Models.Lecturer>
+
+@{
+    ViewBag.Title = "מרצים";
+}
+
+<div class="pagePlaceWithoutLayout">
+
+    <div class="container">
+
+        <p>
+            @Html.ActionLink("הוספת מרצה", "CreateLecturer")
+        </p>
+        @using (Html.BeginForm())
+        {
+            <p>
+                חיפוש לפי שם מרצה: @Html.TextBox("SearchString")
+                <input type="submit" value="חיפוש" />
+            </p>
+        }
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink("שם פרטי", "IndexLecturer", new { sortOrder = ViewBag.FirstNameSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("שם משפחה", "IndexLecturer", new { sortOrder = ViewBag.LastNameSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("וותק", "IndexLecturer", new { sortOrder = ViewBag.SenioritySortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("ציון", "IndexLecturer", new { sortOrder = ViewBag.GradeSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllSchoolLecturerBelongsTo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllCoursesTeachedByLecturer)
+                </th>
+                <th>
+                    אפשרויות מנהל
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Seniority)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GeneralGradeOfLecturer)
+                    </td>
+                    <td>
+                        @{
+                foreach (var school in item.AllSchoolLecturerBelongsTo)
+                {
+                    @school.Name <br />
+                }
+                        }
+                    </td>
+                    <td>
+                        @{
+                foreach (var course in item.AllCoursesTeachedByLecturer)
+                {
+                    @course.Name <br />
+                }
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditLecturer", new { id = item.LecturerID }) |
+                        @Html.ActionLink("Details", "DetailsLecturer", new { id = item.LecturerID }) |
+                        @Html.ActionLink("Delete", "DeleteLecturer", new { id = item.LecturerID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+</div>
+</div>

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - lecturate </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+
+    <script type="text/javascript">
+    $(function () {
+        $("#schoolSearch").autocomplete({
+            source: '@Url.Action("GetSchools")'
+        });
+    });
+
+
+     $(function () {
+         $("#courseSearch").autocomplete({
+             source: '@Url.Action("GetCourses")'
+          });
+     });
+
+     $(function () {
+         $("#lecturerSearch").autocomplete({
+              source: '@Url.Action("GetLecturers")'
+          });
+     });
+    </script>
+        
+    <div style="margin: 0 auto;">
+        <!-- HTML5 Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container">
+                @using (@Html.BeginForm("Index", "Review"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li class="searchLi"> <input type="text" class="form-control" value="המכללה למנהל ראשל'צ"> </li>
+                        <li class="searchLi"> <input type="text" class="form-control" name="school" id="schoolSearch" placeholder="שם בית הספר"> </li>
+                        <li class="searchLi"> <input type="text" class="form-control" name="course" id="courseSearch" placeholder="שם הקורס"> </li>
+                        <li class="searchLi"> <input type="text" class="form-control" name="lecturer" id="lecturerSearch" placeholder="שם המרצה"> </li>
+                        <li class="buttonLi"> <input type="submit" class="btn btn-info" value="חיפוש"> </li>
+                    </ul>
+                }
+                <div class="loginBar">
+                    <div class="loginBorder"> @Html.Partial("_LoginPartial") </div>
+                </div>
+            </div>
+        </nav>
+
+
+        @RenderBody()
+
+
+
+    </div>
+        <footer class="text-center">
+            <div class="container">
+                <div class="footer-col col-md-3">
+                    @Html.ActionLink("עמוד ראשי", "Index", "Home")
+                </div>
+                <div class="footer-col col-md-3">
+                    @Html.ActionLink("אודות האתר", "About", "Home")
+                </div>
+                <div class="footer-col col-md-3">
+                    <a href="/Review/InstitutionDetails?InstitutionId=1"> המכללה למנהל </a>
+                </div>
+                <div class="footer-col col-md-3">
+                    @Html.ActionLink("כניסת מנהל", "Manager", "Managment")
+
+                </div>
+            </div>
+        </footer>
+
+
+
+
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

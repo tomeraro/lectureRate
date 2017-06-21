@@ -1,0 +1,569 @@
+﻿/* ---- Custom Fonts ----- */
+@font-face {
+   font-family: OpenSansHebrew-Bold;
+   src: url(fonts/OpenSansHebrew-Bold.woff),
+        url(../fonts/OpenSansHebrew-Bold.ttf);
+}
+
+@font-face {
+   font-family: OpenSansHebrew-Regular;
+   src: url(fonts/OpenSansHebrew-Regular.woff),
+        url(../fonts/OpenSansHebrew-Regular.ttf);
+}
+
+@font-face {
+   font-family: OpenSansHebrew-ExtraBold;
+   src: url(../fonts/OpenSansHebrew-ExtraBold.woff),
+        url(../fonts/OpenSansHebrew-ExtraBold.ttf);
+}
+
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+html {
+     height: 93%;
+}
+
+section {
+    padding: 100px 0;
+}
+
+
+p {
+    font-size: 20px;
+}
+
+p.small {
+    font-size: 16px;
+}
+
+a,
+a:hover,
+a:active,
+a.active {
+    outline: 0;
+    color: #18bc9c;
+}
+
+
+/* ---- navbar CSS - Changes of bootstrap library & new classes ----- */ 
+.navbar-default {
+    background-color: #2C3E50;   
+}
+
+.navbar-default, .navbar-inverse {
+    border-bottom: 2px solid #fff;
+}
+
+.navbar {
+    font-family: OpenSansHebrew-Regular;
+}
+
+.navbar-fixed-top {
+        padding: 15px 0;
+        top: 0;
+}
+
+.searchLi {
+  margin-left: 20px;
+}
+
+.searchLi input {
+  font-size: 15px;
+}
+
+.navbar-nav {
+    margin-left: 30px;
+}
+
+.loginBar {
+    margin-top: 1px;
+    font-size: 16px;
+    color: #fff; 
+}
+
+.loginBar .loginBorder {
+    border: 1px solid #091827; width:155px; 
+    float: left;
+    background-color: #4e6072;
+    border-radius: 15px 50px;
+    padding: 4px; 
+    padding-right: 5px;
+}
+
+.navbar-default,
+.navbar-inverse {
+    border-bottom: 2px solid #04909d;
+}
+
+
+
+
+
+/* ---- Footer CSS - Changes of bootstrap library & new classes ----- */
+
+footer {
+    padding: 10px 0;
+    background-color: #233140;
+    border-top: 4px solid #04909d;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+}
+
+footer .footer-col {
+    margin-bottom: 10px;
+    margin-top: 8px;
+}
+
+footer .footer-col a{
+    font-size: 17px;
+    color: #fff;
+    font-family: OpenSansHebrew-Regular;
+}
+
+
+/* ---- Index PAGE SLIDER ----- */
+
+/*Carousel main class */
+.carousel {
+  height: 800px;
+}
+
+.carousel-caption {
+  z-index: 10;
+  top: 65%;
+  text-shadow: 0px;
+}
+
+.carousel .item {
+  height: 800px;
+}
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 800px;
+}
+
+.carousel-caption h1{
+  color: #4e6072;
+  text-shadow: 1px 1px 1px #000;
+  -webkit-text-stroke: 1px #fff;
+  font-size: 53px;
+  font-family: OpenSansHebrew-ExtraBold;
+}
+
+span.slideText {
+  color: #04909d;
+  font-size: 23px;
+  font-family: Tahoma;
+  -webkit-text-stroke: 1px #000;
+}
+
+.ui-menu{
+    padding-top: 20px !important;
+}
+
+
+
+/* ---- Review Page CSS ----- */
+
+.pagePlaceWithoutLayout{
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.navigationList {
+    font-size: 16px;
+    color: #04909d;
+    font-family: openSansHebrew-Regular;
+    margin-bottom: 35px;
+}
+
+.navigationli{
+    margin-right: -5px;
+}
+
+.topMargin {
+    margin-top: 70px;
+}
+
+.bottomBeforeComments {
+    margin-bottom: 35px;
+}
+
+.tableReview thead > tr > th,
+.tableReview tbody > tr > th,
+.tableReview tfoot > tr > th,
+.tableReview thead > tr > td,
+.tableReview tbody > tr > td,
+.tableReview tfoot > tr > td {
+  border-top: 0px;
+  font-size: 17px;
+}
+
+.tableReview tr td.rightTd {
+    font-family: OpenSansHebrew-Bold;
+}
+
+.table-bordered {
+        font-family: openSansHebrew-Regular;      
+}
+
+.table-bordered thead > tr > th.positive {
+        color: rgb(5, 157, 17);
+        width: 50%;
+        font-family: openSansHebrew-Bold;
+        font-size: 16px;
+}
+
+.table-bordered thead > tr > th.negative {
+        color: #e12900;
+        width: 50%;
+        font-family: openSansHebrew-Bold;
+        font-size: 16px;
+}
+
+.starRating:not(old){
+  display        : inline-block;
+  width          : 7.5em;
+  height         : 1.5em;
+  overflow       : hidden;
+  vertical-align : bottom;
+}
+
+.starRating:not(old) > label{
+}
+
+.light {
+  display         : block;
+  float           : right;
+  position        : relative;
+  background      : url('../images/star1-on.svg');
+  background-size : contain;
+}
+
+.noLight {
+  display         : block;
+  float           : right;
+  position        : relative;
+  background      : url('../images/star1-off.svg');
+  background-size : contain;
+}
+
+.starRating:not(old) > label:before{
+  content         : '';
+  display         : block;
+  width           : 1.5em;
+  height          : 1.5em;
+  background-size : contain;
+  opacity         : 0;
+  transition      : opacity 0.2s linear;
+}
+
+article {
+    padding: 21px;
+	background: #fff;
+    margin-bottom: 10px;
+    border: 0px;		
+}
+
+article:nth-child(odd) {
+    display: table;
+	padding: 22px;
+    background: #eee;
+	border: 1px solid #d7d7d7;
+}
+
+article .table-bordered {
+    font-size: 16px;
+    font-family: openSansHebrew-Bold;
+}
+
+article .positiveReview {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+article .negativeReview {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+article .reviewDate {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+article .positiveReview {
+    font-size: 16px;
+}
+
+article .negativeReview {
+    font-size: 16px;
+}
+
+article .positiveReview span {
+        color: rgb(5, 157, 17);
+        font-family: openSansHebrew-Bold;
+        font-size: 16px;      
+}
+
+article .negativeReview span {
+    color: #e12900;
+        font-family: openSansHebrew-Bold;
+        font-size: 16px;
+}
+
+.addIcon { 
+    float: left;
+    margin-left: 125px;
+    bottom: 0;
+}
+
+#sidebar { 
+  position: fixed;
+  float: left;
+  bottom: 0;
+  margin-bottom: 20px;
+  z-index: 1000;
+}
+
+/* ----- Institution, School & Lecturer pages ----- */
+.dl-horizontal.pages dt {
+    float: right;
+    width: 160px;
+    text-align: right !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    font-family: openSansHebrew-Bold;
+    color: #04909d;
+    font-size: 16px;
+    line-height: 27px;
+}
+
+.dl-horizontal.pages dd {
+    margin-left: 180px;
+    margin-bottom: 8px;
+    font-family: openSansHebrew-Regular;
+    font-size: 16px;
+    line-height: 27px;
+}
+
+.dl-horizontal dd .aboutSchoolMultipleColumns {
+       -webkit-column-count: 3; /* Chrome, Safari, Opera */ 
+       -moz-column-count: 3; /* Firefox */ 
+       column-count: 3;
+}
+  
+.dl-horizontal dd:before,
+.dl-horizontal dd:after {
+    display: table;
+    content: " ";
+}
+
+.dl-horizontal dd:after {
+    clear: both;
+}
+  .dl-horizontal dd:before,
+  .dl-horizontal dd:after {
+    display: table;
+    content: " ";
+  }
+  .dl-horizontal dd:after {
+    clear: both;
+  }
+
+
+
+/* ----- About page ----- */
+.aboutContent h3 {
+        font-family: openSansHebrew-Bold;
+}
+
+.aboutContent {
+        margin-top: -80px;
+        font-family: openSansHebrew-Regular;
+        font-size: 17px;
+}
+
+.technology {
+    width: 110px;
+    height: 40px;
+    background: #04909d;
+    -webkit-transition: width 2s; /* Safari */
+    transition: width 2s;
+    float: right;
+    margin-left:40px;
+    border-radius: 10px 10px;
+    padding: 4px; 
+    text-align: center;
+    margin-bottom: 15px;
+    color: #fff;
+    padding-top: 7px;
+}
+
+.technology:hover {
+            width: 135px;
+}
+
+#mainContent {
+        display: table-cell;
+        width: 70%;
+        padding-right: 22px;
+} 
+
+aside.AboutAside {
+        display: table-cell;
+        width: 30%;
+}
+
+.portfolio-item {
+        margin-bottom: 30px;
+}
+
+.container.backToList {
+    margin-bottom: 30px;
+}
+
+
+
+/* ---- Admin Pages Filter ---- */
+ul.filterAdmin {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 17px;
+    margin-bottom: 18px;
+}
+
+ ul.filterAdmin li {
+     display: inline;
+     margin-left: 20px;
+ }
+
+
+
+/* -------- D3 Graph ---------*/
+.leftGraph {
+    margin-top: -10px;
+    margin-bottom: 25px;
+}
+
+.leftGraph h3 {
+    font-size: 17px;
+    font-family: openSansHebrew-Bold;
+}
+
+path {
+        stroke: #fff;
+}
+
+path:hover {
+            opacity: 0.9;
+}
+
+rect:hover {
+        fill: blue;
+}
+
+.axis {
+        font: 10px sans-serif;
+}
+
+.legend tr {
+        border-bottom: 1px solid grey;
+}
+
+.legend tr:first-child {
+            border-top: 1px solid grey;
+}
+
+.axis path,
+.axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+}
+
+.x.axis path {
+        display: none;
+}
+
+.legend {
+        margin-bottom: 76px;
+        display: inline-block;
+        border-collapse: collapse;
+        border-spacing: 0px;
+        float: left;
+        padding-top: 32px;
+}
+
+.legend td {
+        padding: 4px 8px;
+        font-family: openSansHebrew-Regular;
+        font-size: 16px;
+        vertical-align: bottom;
+}
+
+.legendFreq, .legendPerc {
+        align: right;
+        width: 50px;
+}
+
+
+
+/* ---- About Page ---- */
+header.aboutHeadLine {
+    text-align: center;
+    color: #fff;
+    background: #18bc9c;
+}
+
+article.blogPost {  
+    display: table;
+	padding: 22px;
+    background: #fff;
+	border: 0px;
+}
+
+
+
+
+
+
+
+
+.navbar a:focus {
+    outline: 0;
+}
+
+.navbar .navbar-nav {
+    letter-spacing: 1px;
+}
+
+.navbar .navbar-nav li a:focus {
+    outline: 0;
+}
+
+
+
+
+section h2 {
+    margin: 0;
+    font-size: 3em;
+}
+
+
+

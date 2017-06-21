@@ -1,0 +1,99 @@
+﻿@model lecturate.Models.Review
+
+@{
+    ViewBag.Title = "DeleteReview";
+}
+<div class="pagePlaceWithoutLayout">
+    <div class="container">
+        <div>
+            <h4>מחיקת דירוג</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpVote)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UpVote)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DownVote)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DownVote)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerReadine)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerReadine)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerTransferRate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerTransferRate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerAttitude)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerAttitude)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LecturerKnowledge)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LecturerKnowledge)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.StudyingYear)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StudyingYear)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PositiveComment)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PositiveComment)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NegativeComment)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NegativeComment)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="מחיקה" class="btn btn-default" /> |
+                    @Html.ActionLink("חזרה לרשימה המלאה", "AllReviews")
+                </div>
+            }
+        </div>
+
+        </div>
+    </div>
+

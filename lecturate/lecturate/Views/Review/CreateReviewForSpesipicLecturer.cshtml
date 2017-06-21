@@ -1,0 +1,117 @@
+﻿@model lecturate.Models.Review
+
+@{
+    ViewBag.Title = "CreateReviewForSpesipicLecturer";
+}
+
+
+@{
+    //insert "post" parameters into varaibles
+    var SchoolID = Request.Params["SchoolID"];
+    var CourseID = Request.Params["CourseID"];
+    var LecturerID = Request.Params["LecturerID"];
+    var InstitutionID = Request.Params["InstitutionID"];
+}
+
+<div class="pagePlaceWithoutLayout">
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+
+            <div class="form-horizontal">
+                <h4>דירוג חדש</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UpVote, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UpVote)
+                        @Html.ValidationMessageFor(model => model.UpVote)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DownVote, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DownVote)
+                        @Html.ValidationMessageFor(model => model.DownVote)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LecturerReadine, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LecturerReadine)
+                        @Html.ValidationMessageFor(model => model.LecturerReadine)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LecturerTransferRate, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LecturerTransferRate)
+                        @Html.ValidationMessageFor(model => model.LecturerTransferRate)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LecturerAttitude, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LecturerAttitude)
+                        @Html.ValidationMessageFor(model => model.LecturerAttitude)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LecturerKnowledge, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LecturerKnowledge)
+                        @Html.ValidationMessageFor(model => model.LecturerKnowledge)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StudyingYear, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.StudyingYear)
+                        @Html.ValidationMessageFor(model => model.StudyingYear)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PositiveComment, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PositiveComment)
+                        @Html.ValidationMessageFor(model => model.PositiveComment)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NegativeComment, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NegativeComment)
+                        @Html.ValidationMessageFor(model => model.NegativeComment)
+                    </div>
+                </div>
+
+                @Html.Hidden(SchoolID)
+                @Html.Hidden(CourseID)
+                @Html.Hidden(LecturerID)
+                @Html.Hidden(InstitutionID)
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="יצירת דירוג" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

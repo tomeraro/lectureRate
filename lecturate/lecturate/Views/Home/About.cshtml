@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+
+<div class="pagePlaceWithoutLayout">
+    <div class="container">
+        <div class="aboutContent">
+            <div id="mainContent">
+                <section>
+                    <article class="blogPost">
+                        <header class="aboutHeadLine">
+                            <h3>על האתר - lecturate</h3>
+                        </header>
+                        <div>
+                            <p>
+                                lecturate הינה אפליקציה אינטרנטית לדירוג מרצים במוסדות להשכלה גבוהה בישראל. באתר אלפי דירוגים של מרצים במגוון רחב של קורסים וקמפוסים ברחבי הארץ.<br />
+                            </p> <span style="font-family: openSansHebrew-Bold;"> למי האתר מיועד?</span> <br />
+                            <ul>
+                                <li type="square">סטודנטים אשר סיימו קורס ורוצים לדרג את רמת ההוראה</li>
+                                <li type="square">סטודנטים אשר לקראת בחירת קורסים ומתלבטים אצל איזה מרצה ללמוד</li>
+                                <li type="square">מרצים אשר מעוניינים לקבל חוות דעת מתלמידיהם במטרה ללמוד מה יש לשמר ומה לשפר</li>
+                            </ul>
+                            <br /> <p>
+                                תוכן האתר אינו גלוי לכל. על מנת להוסיף המלצה ו\או לצפות בחוות דעת של סטודנטים שסיימו קורס, יש להרשם לאתר.
+                                כל התגובות הינן אנונימיות לחלוטין, אנו לא שומרים את שמות המגיבים. <br />
+                            </p>
+                            <br /><br />
+                            <span style="font-family: openSansHebrew-Bold;"> טכנולוגיות בשימוש בפרויקט</span>
+                            <br /><br />
+
+                            <div class="technology">CSS3</div>
+                            <div class="technology">HTML5</div>
+                            <div class="technology">MVC</div>
+                            <div class="technology">JAVASCRIPT</div>
+                            <div class="technology">JQuery</div>
+                            <div class="technology">AJAX</div>
+                            <div class="technology">LINQ</div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+
+            <aside class="AboutAside">
+                <header class="aboutHeadLine">
+                    <h3>מפתחי האתר</h3>
+                </header>
+                תומר ארונובסקי, 304983497 <br />
+                מרטין סעד, 316900836 <br />
+                רע בר, 200055242 <br />
+                דניאל פרידמן, 203575980 <br />
+
+                <br /><br />
+                <br />
+
+
+                <img id="logo" src="../images/logo.jpg" width="300" height="304" style="display:none;">
+                <canvas id="myCanvas" style="border:1px solid #d3d3d3;" width="320" height="320">
+                    Your browser does not support the HTML5 canvas tag.
+                </canvas>
+                <p><button onclick="myCanvas()">לצפיה בלוגו שלנו - Canvas</button></p>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myCanvas() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("logo");
+        ctx.drawImage(img, 15, 15);
+    }
+</script>

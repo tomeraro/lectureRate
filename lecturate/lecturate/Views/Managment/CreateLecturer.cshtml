@@ -1,0 +1,95 @@
+﻿@model lecturate.Models.Lecturer
+
+@{
+    ViewBag.Title = "CreateLecturer";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="pagePlaceWithoutLayout">
+    <div class="container">
+    <div class="form-horizontal">
+        <h4>מרצה חדש</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Seniority, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Seniority)
+                @Html.ValidationMessageFor(model => model.Seniority)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GeneralGradeOfLecturer, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GeneralGradeOfLecturer)
+                @Html.ValidationMessageFor(model => model.GeneralGradeOfLecturer)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AllSchoolLecturerBelongsTo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <table>
+                    <tr>
+                        @{
+                            int cnt = 0;
+                            List<lecturate.ViewModels.AssignedSchoolData> schools = ViewBag.Schools;
+
+                            foreach (var school in schools)
+                            {
+                                if (cnt++ % 3 == 0)
+                                {
+                                    @:</tr><tr>
+                                }
+                                @:<td>
+                                    <input type="checkbox"
+                                       name="selectedSchools"
+                                       value="@school.SchoolID"
+                                       @(Html.Raw(school.Assigned ? "checked=\"checked\"" : "")) />
+                                       @school.Name
+                               @:</td>
+                            }
+                            @:</tr>
+                        }
+                    </table>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="יצירת מרצה" class="btn btn-default" />
+                </div>
+            </div>
+            </div>
+         </div>
+       </div>
+}
+
+<div class="container">
+    @Html.ActionLink("חזרה לרשימה המלאה", "IndexLecturer")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

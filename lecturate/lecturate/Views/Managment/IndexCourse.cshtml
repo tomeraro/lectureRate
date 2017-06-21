@@ -1,0 +1,80 @@
+﻿@model IEnumerable<lecturate.Models.Course>
+
+@{
+    ViewBag.Title = "קורסים";
+}
+
+<div class="pagePlaceWithoutLayout">
+
+    <div class="container">
+
+        <p>
+            @Html.ActionLink("הוספת קורס", "CreateCourse")
+        </p>
+
+        @using (Html.BeginForm())
+        {
+            <p>
+                חיפוש לפי שם קורס: @Html.TextBox("SearchString")
+                <input type="submit" value="חיפוש" />
+            </p>
+        }
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.ActionLink("שם קורס", "IndexCourse", new { sortOrder = ViewBag.CourseNameSortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("רמת קושי", "IndexCourse", new { sortOrder = ViewBag.DifficultySortParm })
+                </th>
+                <th>
+                    @Html.ActionLink("בית ספר", "IndexCourse", new { sortOrder = ViewBag.SchoolSortParm })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllLecturesTeachingTheCourse)
+                </th>
+                <th>
+                    אפשרויות מנהל
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Difficulty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.School.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @{
+                foreach (var lecturer in item.AllLecturesTeachingTheCourse)
+                {
+                    @lecturer.FirstName @:  @lecturer.LastName <br />
+                    }
+                        }
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "EditCourse", new { id = item.CourseID }) |
+                        @Html.ActionLink("Details", "DetailsCourse", new { id = item.CourseID }) |
+                        @Html.ActionLink("Delete", "DeleteCourse", new { id = item.CourseID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
